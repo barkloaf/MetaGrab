@@ -105,6 +105,7 @@ dist
 
 #React Build
 build/
+src/App.test.js
 
 #Config files
 config.json
