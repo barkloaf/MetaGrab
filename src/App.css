@@ -9,12 +9,12 @@ h1 {
 }
 
 h2 {
-  padding-bottom: 2vmin;
+  padding-bottom: 3vmin;
   color: #a1a3a6;
 }
 
 h3 {
-  font-size: calc(1px + 2vmin);
+  font-size: calc(1px + 3vmin);
   color: #b1b3b6;
 }
 
@@ -27,15 +27,6 @@ h3 {
   color: #d1d3d6;
   font-size: calc(1px + 2vh);
 }
-
-/*ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  list-style-type: none;
-}*/
 
 .albumArt {
   max-width: auto;

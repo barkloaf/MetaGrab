@@ -41,7 +41,7 @@ class About extends React.Component {
                     <br />
                     <span>
                         <u><h3>How does this work?</h3></u>
-                        <p>The backend is my own API written in Go, queries the Spotify API, and serves modified JSON of the results it gets. My API is available under the APGL v3.0 on my <a href="https://github.com/barkloaf/SpotGrabAPI" style={{ color: "#85BBFD" }}>GitHub repo</a>. The frontend is written sloppily with <a href="https://reactjs.org/" style={{ color: "#85BBFD" }}>ReactJS</a> (frontend <b>sucks.</b>), using some elements from <a href="https://getbootstrap.com/" style={{ color: "#85BBFD" }}>Bootstrap</a> and other projects. All the source code for this site is available under the GPL v3.0 on my <a href="https://github.com/barkloaf/SpotGrab" style={{ color: "#85BBFD" }}>GitHub repo</a>!</p>
+                        <p>The backend is my own API written in Go. It queries the Spotify API and serves modified JSON of the results it gets. My API is available under the APGL v3.0 on my <a href="https://github.com/barkloaf/SpotGrabAPI" style={{ color: "#85BBFD" }}>GitHub repo</a>. The frontend is written sloppily with <a href="https://reactjs.org/" style={{ color: "#85BBFD" }}>ReactJS</a> (frontend <b>sucks.</b>), using some elements from <a href="https://getbootstrap.com/" style={{ color: "#85BBFD" }}>Bootstrap</a> and other projects. All the source code for this site is available under the GPL v3.0 on my <a href="https://github.com/barkloaf/SpotGrab" style={{ color: "#85BBFD" }}>GitHub repo</a>!</p>
                     </span>
                     <br /><br />
                     <span>

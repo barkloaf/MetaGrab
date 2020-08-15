@@ -6,6 +6,7 @@
 
 # <p align="center">SpotGrab</p>
 <p align="center">A webapp that grabs Spotify's metadata for any track you'd like!</p>
+<p align="center"><img src="https://img.shields.io/website?down_color=lightgrey&down_message=offline&style=flat-square&up_color=%2318d860&up_message=online&url=https%3A%2F%2Fspotgrab.barkloaf.com" /></p>
 
 ## What is this?
 This is a small little webapp that grabs Spotify's metadata about any track on its platform. Metadata is data about other data. Track metadata can include artists, what album the track appeared on, and the qualitative feel of the track. If you are ever curious about what Spotify thinks of a particular track and about what it uses to feed its recommendation algorithms, this is for you!
