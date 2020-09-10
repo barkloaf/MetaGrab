@@ -34,14 +34,14 @@ const mode = (int) => {
     }
 }
 
-const artists = (arr) => {
-    var artists = ""
+const commaSep = (arr) => {
+    var string = ""
 
     arr.forEach(element => {
-        artists = artists + element.name + ", ";
+        string = string + (element.name || element) + ", ";
     });
 
-    return artists.slice(0, -2);
+    return string.slice(0, -2);
 }
 
 const explicit = (expl) => {
@@ -86,51 +86,53 @@ class Results extends React.Component {
                             width: '18rem'
                         }}
                     >
-                    <div class="embed-responsive embed-responsive-4by3"><iframe class="embed-responsive-item" src={"https://open.spotify.com/embed/track/" + result.Info.id} allow="encrypted-media" allowTransparency="true" frameBorder="-10" title="Track Preview" /></div>
+                    <div className="embed-responsive embed-responsive-4by3"><iframe className="embed-responsive-item" src={"https://open.spotify.com/embed/track/" + result.Info.id} allow="encrypted-media" allowTransparency="true" frameBorder="-10" title="Track Preview" /></div>
                     <Card.Header><b>Album Info:</b></Card.Header>
 
                     <ListGroup className="list-group-flush" variant="dark">
                         <ListGroupItem variant="dark"><Tooltipper text="The name of the album.">Name:</Tooltipper><br /><b>{result.Album.name}</b></ListGroupItem>
+                        <ListGroupItem variant="dark"><Tooltipper text={"The type of the album: one of \"album\", \"single\", or \"compilation\"."}>Type:</Tooltipper><br /><b>{result.Album.album_type}</b></ListGroupItem>
                         <ListGroupItem variant="dark"><Tooltipper text="The record label for the album.">Label:</Tooltipper><br /><b>{result.Album.label}</b></ListGroupItem>
                         <ListGroupItem variant="dark"><Tooltipper text="The date the album was first released.">Date:</Tooltipper><br /><b>{result.Album.release_date}</b></ListGroupItem>
                     </ListGroup>
 
                     <Card.Footer>
-                        <small className="text-muted">{result.Album.uri}</small>
+                        <small><a href={new URL(result.Album.id, "https://open.spotify.com/album/")} className="text-muted">{result.Album.uri}</a></small>
                     </Card.Footer>
                     </Card>
 
 
                     <Card
-                    bg="dark"
-                    text="white"
-                    style={{
-                        width: '18rem'
-                    }}
+                        bg="dark"
+                        text="white"
+                        style={{
+                            width: '18rem'
+                        }}
                     >
                     <Card.Header><b>Track Info:</b></Card.Header>
 
                     <ListGroup className="list-group-flush" variant="dark">
                         <ListGroupItem variant="dark"><Tooltipper text="The name of the track.">Name:</Tooltipper><br /><b>{result.Info.name}</b></ListGroupItem>
-                        <ListGroupItem variant="dark"><Tooltipper text="The artists who performed the track.">Artists:</Tooltipper><br /><b>{artists(result.Info.artists)}</b></ListGroupItem>
+                        <ListGroupItem variant="dark"><Tooltipper text="The artists who performed the track.">Artists:</Tooltipper><br /><b>{commaSep(result.Info.artists)}</b></ListGroupItem>
                         <ListGroupItem variant="dark"><Tooltipper text="The track length.">Duration:</Tooltipper><br /><b>{Math.floor((result.Features.duration_ms / 1000) / 60) + " min " + (Math.floor(result.Features.duration_ms / 1000) % 60) + " sec"}</b></ListGroupItem>
                         <ListGroupItem variant="dark"><Tooltipper text="Whether or not the track has explicit lyrics.">Explicit:</Tooltipper><br /><b>{explicit(result.Info.explicit)}</b></ListGroupItem>
                         <ListGroupItem variant="dark"><Tooltipper text="The popularity of the track. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.">Popularity:</Tooltipper><br /><b>{result.Info.popularity}%</b></ListGroupItem>
-                        <ListGroupItem variant="dark"><Tooltipper text="The number of the track. If an album has several discs, the track number is the number on the specified disc.">Track # on album</Tooltipper><br />#<b>{result.Info.track_number}</b></ListGroupItem>
+                        <ListGroupItem variant="dark"><Tooltipper text="A list of the countries in which the track can be played, identified by their ISO 3166-1 alpha-2 code.">Available Markets:</Tooltipper><br /><Tooltipper text={commaSep(result.Info.available_markets)} pos="right"><b><u>{result.Info.available_markets.length}</u> countries</b></Tooltipper></ListGroupItem>
+                        <ListGroupItem variant="dark"><Tooltipper text="The number of the track. If an album has several discs, the track number is the number on the specified disc.">Track # on album:</Tooltipper><br />#<b>{result.Info.track_number}</b></ListGroupItem>
                     </ListGroup>
 
                     <Card.Footer>
-                        <small className="text-muted">{result.Info.uri}</small>
+                        <small><a href={new URL(result.Info.id, "https://open.spotify.com/track/")} className="text-muted">{result.Info.uri}</a></small>
                     </Card.Footer>
                     </Card>
 
 
                     <Card
-                    bg="dark"
-                    text="white"
-                    style={{
-                        width: '18rem'
-                    }}
+                        bg="dark"
+                        text="white"
+                        style={{
+                            width: '18rem'
+                        }}
                     >
                     <Card.Header><b>Track Features:</b></Card.Header>
 
@@ -146,6 +148,7 @@ class Results extends React.Component {
 
                     </Card>
                 </CardGroup>
+                
                 <Table responsive variant="dark">
                     <thead>
                         <tr>
@@ -173,6 +176,10 @@ class Results extends React.Component {
                         {sections(result.Analysis.sections)}
                     </tbody>
                 </Table>
+
+                <div style={{ textAlign: "center" }}>
+                    <small className="text-muted">All metadata is made available by <a href="https://spotify.com" className="text-muted">Spotify</a>.</small>
+                </div>
             </>
         )
     }

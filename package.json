@@ -1,5 +1,5 @@
 {
-  "name": "spotgrab",
+  "name": "metagrab",
   "description": "Grabs Spotify's metadata for any track you'd like!",
   "version": "1.0.0",
   "license": "GPL-3.0",

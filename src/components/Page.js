@@ -57,7 +57,36 @@ class Page extends React.Component {
           isLoaded: false,
           about: true            
       }
-  } 
+
+      this.onKeyUp = this.onKeyUp.bind(this);
+  }
+  
+  jsonFetch = (id) => {
+    fetch(new URL("/track?id=" + id, config.apiURL))
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            error: null,
+            result
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+      .then(
+        () => {
+          this.setState({
+            value: ""
+          })
+        }
+      )
+  }
   
   onChange = (event, { newValue }) => {
       this.setState({
@@ -73,12 +102,12 @@ class Page extends React.Component {
     }));
   };
   
-    onSuggestionsClearRequested = () => {
-      this.setState({
-        suggestions: [],
-        sIsLoaded: false
-      });
-    };
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: [],
+      sIsLoaded: false
+    });
+  };
   
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
     this.setState({
@@ -86,22 +115,8 @@ class Page extends React.Component {
       about: false,
       value: ""
     });
-    fetch(new URL("/track?id=" + suggestion.id, config.apiURL))
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            result
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+
+    this.jsonFetch(suggestion.id);
   }
 
   aboutButton = () => {
@@ -110,6 +125,11 @@ class Page extends React.Component {
     }))
   }
 
+  onKeyUp = (event) => {
+    if(event.charCode === 13 && this.state.value !== "") {
+      this.jsonFetch(this.state.value)
+    }
+  }
     
   render() {
     let {
@@ -119,7 +139,8 @@ class Page extends React.Component {
     const inputProps = {
       placeholder: "Search Spotify...",
       value,
-      onChange: this.onChange
+      onChange: this.onChange,
+      onKeyPress: this.onKeyUp
     };
 
     let header = (

@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #0f0f0f;
+  background-color: #191414;
   height: 100%;
 }
 
@@ -83,7 +83,7 @@ h3 {
 }
 
 .highlight {
-  color: #000000;
+  color: #191414;
   font-weight: bold;
 }
 
@@ -99,7 +99,7 @@ h3 {
 }
 
 .react-autosuggest__suggestion--focused .highlight {
-  color: #120000;
+  color: #191414;
 }
 
 .react-autosuggest__suggestion:not(:first-child) {
