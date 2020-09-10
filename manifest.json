@@ -1,6 +1,6 @@
 {
-  "short_name": "SpotGrab",
-  "name": "SpotGrab - Spotify Metadata Grabber",
+  "short_name": "MetaGrab",
+  "name": "MetaGrab - Spotify Metadata Grabber",
   "icons": [
     {
       "src": "favicon.png",
@@ -10,7 +10,7 @@
     {
       "src": "logo.png",
       "type": "image/png",
-      "sizes": "698x698"
+      "sizes": "386x455"
     }
   ],
   "start_url": ".",
