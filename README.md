@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://metagrab.barkloaf.com">
-    <img src="https://metagrab.barkloaf.com/logo.png" width="300" height="300" />
+    <img src="https://metagrab.barkloaf.com/logo.png" width="300" />
   </a>
 </p>
 
