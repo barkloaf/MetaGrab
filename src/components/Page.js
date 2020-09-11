@@ -72,11 +72,13 @@ class Page extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
-          this.setState({
-            isLoaded: true,
-            error: null,
-            result
-          });
+          if(result.Info.name !== "") {
+            this.setState({
+              isLoaded: true,
+              error: null,
+              result
+            });
+          }
         },
         (error) => {
           this.setState({
