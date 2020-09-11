@@ -62,7 +62,13 @@ class Page extends React.Component {
   }
   
   jsonFetch = (id) => {
-    fetch(new URL("/track?id=" + id, config.apiURL))
+    this.setState({
+      isLoaded: false,
+      about: false,
+      value: ""
+    });
+
+    fetch(new URL("/track?id=" + encodeURIComponent(id), config.apiURL))
       .then(res => res.json())
       .then(
         (result) => {
@@ -77,13 +83,6 @@ class Page extends React.Component {
             isLoaded: true,
             error
           });
-        }
-      )
-      .then(
-        () => {
-          this.setState({
-            value: ""
-          })
         }
       )
   }
@@ -110,12 +109,6 @@ class Page extends React.Component {
   };
   
   onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
-    this.setState({
-      isLoaded: false,
-      about: false,
-      value: ""
-    });
-
     this.jsonFetch(suggestion.id);
   }
 
