@@ -83,7 +83,7 @@ class Results extends React.Component {
                         bg="dark"
                         text="white"
                         style={{
-                            width: '18rem'
+                            width: '100%'
                         }}
                     >
                     <div className="embed-responsive embed-responsive-4by3"><iframe className="embed-responsive-item" src={"https://open.spotify.com/embed/track/" + result.Info.id} allow="encrypted-media" allowTransparency="true" frameBorder="-10" title="Track Preview" /></div>
@@ -106,7 +106,7 @@ class Results extends React.Component {
                         bg="dark"
                         text="white"
                         style={{
-                            width: '18rem'
+                            width: '100%'
                         }}
                     >
                     <Card.Header><b>Track Info:</b></Card.Header>
@@ -131,7 +131,7 @@ class Results extends React.Component {
                         bg="dark"
                         text="white"
                         style={{
-                            width: '18rem'
+                            width: '100%'
                         }}
                     >
                     <Card.Header><b>Track Features:</b></Card.Header>
