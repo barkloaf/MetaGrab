@@ -15,7 +15,7 @@ import {
 const config = require("../config.json")
 
 const getSuggestions = async (value) => {
-  return fetch(new URL("/search?" + encodeURIComponent(value), config.apiURL))
+  return fetch(new URL("search?" + encodeURIComponent(value), config.apiURL))
   .then(res => res.json());
 };
   
@@ -68,7 +68,7 @@ class Page extends React.Component {
       value: ""
     });
 
-    fetch(new URL("/track?id=" + encodeURIComponent(id), config.apiURL))
+    fetch(new URL("track?id=" + encodeURIComponent(id), config.apiURL))
       .then(res => res.json())
       .then(
         (result) => {
