@@ -73,6 +73,10 @@ const sections = (sects) => {
 }
 
 class Results extends React.Component {
+    componentDidMount() {
+        window.history.pushState(null, '', "/" + this.props.json.Info.id)
+    }
+    
     render() {
         const result = this.props.json
 

@@ -125,6 +125,13 @@ class Page extends React.Component {
       this.jsonFetch(this.state.value)
     }
   }
+
+  componentDidMount() {
+    const path = window.location.pathname.split("/")
+    if (path.length > 1 && path[1] !== "") {
+      this.jsonFetch(path[1])
+    }
+  }
     
   render() {
     let {
