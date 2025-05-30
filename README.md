@@ -1,3 +1,17 @@
+---
+**Notice: This project has been deprecated.**
+
+On 2024-11-27, Spotify [introduced changes to their Web API](https://developer.spotify.com/blog/2024-11-27-changes-to-the-web-api) that removed features this project utilized. By removing audio features and audio analysis, MetaGrab has ceased to be useful compared to other similar projects. One of MetaGrab's unique features was the showing of all the sections that Spotify has on a particular track and the key, time signature, tempo, etc. associated with each section. Without this feature, I do not see a point in continuing to maintain this project. Thank you for understanding.
+
+Spotify API alternatives:
+* [Tunebat](https://tunebat.com/)
+* [Songdata.io](https://songdata.io/)
+
+Other databases for music analysis (often much more accurate than Spotify):
+* [Hooktheory TheoryTab DB](https://www.hooktheory.com/theorytab)
+* [duuzu's song key & bpm 'database'](https://docs.google.com/document/d/1WcHNaTo6KHNG88yUWxrCULuwHPuQCGQ8UtItgzzK50Q/edit)
+
+<hr />
 <p align="center">
   <a href="https://metagrab.barkloaf.com">
     <img src="https://metagrab.barkloaf.com/logo.png" width="300" />
